@@ -608,6 +608,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 600px;
+          flex: 0 0 600px;
   margin: 10px auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -634,6 +637,8 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin: 10px 28px 60px 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .productCatalog_elem .productCatalog_elem_nameClock {
   font-size: 19.5px;
@@ -642,66 +647,9 @@ body {
 }
 .productCatalog_elem .productCatalog_elem_img {
   width: 150px;
-}
-.productCatalog_elem .productCatalog_productDetalis {
-  width: 100%;
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-.productCatalog_elem .productCatalog_productDetalis .content {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-.productCatalog_elem .productCatalog_productDetalis p {
-  font-size: 19px;
-  margin: 10px 0;
-}
-.productCatalog_elem .productCatalog_productDetalis span {
-  font-size: 17px;
-  font-weight: 600;
-  color: rgb(11, 107, 176);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-.productCatalog_elem .productCatalog_productDetalis a {
-  color: rgb(11, 107, 176);
-  font-size: 19px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  margin-top: 8px;
-}
-.productCatalog_elem .productCatalog_productDetalis a::after {
-  content: "";
-  position: absolute;
-  left: 76px;
-  bottom: -2px;
-  width: 97px;
-  height: 2px;
-  background-color: rgb(11, 107, 176);
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: -webkit-transform 0.7s ease-out;
-  transition: -webkit-transform 0.7s ease-out;
-  transition: transform 0.7s ease-out;
-  transition: transform 0.7s ease-out, -webkit-transform 0.7s ease-out;
-}
-.productCatalog_elem .productCatalog_productDetalis a:hover::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .productCatalog_elem hr {
   border: 1px solid black;
@@ -749,6 +697,59 @@ body {
 }
 .productCatalog_elem .productCatalog_elem_footer .productCatalog_elem_buyBtn:hover {
   background-color: rgb(41, 144, 218);
+}
+.productCatalog_elem .productCatalog_productDetalis_inDetail {
+  margin-top: 10px;
+  border: none;
+  color: rgb(11, 107, 176);
+  font-size: 19px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+.productCatalog_elem .productCatalog_productDetalis_inDetail::after {
+  content: "";
+  position: absolute;
+  top: 26px;
+  left: -5.8px;
+  bottom: 2px;
+  width: 123px;
+  height: 2px;
+  background-color: red;
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.7s ease-out;
+  transition: -webkit-transform 0.7s ease-out;
+  transition: transform 0.7s ease-out;
+  transition: transform 0.7s ease-out, -webkit-transform 0.7s ease-out;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.productCatalog_elem .productCatalog_productDetalis_inDetail:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+.productCatalog_elem .productCatalog_productDetalis_inDetail:hover {
+  cursor: pointer;
+}
+.productCatalog_elem .product_elem_moreInfo {
+  opacity: 0;
+  position: absolute;
+  background-color: white;
+  max-width: 280px;
+  height: 400px;
+  padding: 6px 9px;
+}
+.productCatalog_elem .product_elem_moreInfo p {
+  font-size: 19px;
+  font-weight: 600;
+}
+.productCatalog_elem .product_elem_moreInfo span {
+  color: rgb(11, 107, 176);
+  font-size: 20px;
+}
+.productCatalog_elem .product_elem_moreInfo.show {
+  opacity: 1;
 }
 
 .footer {
