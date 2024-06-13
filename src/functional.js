@@ -50,7 +50,6 @@ form.onsubmit = (event) => {
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-
 document.addEventListener("scroll", () => {
   const advBlock = document.querySelector(".advantagesBlock");
   const targetPosition = advBlock.getBoundingClientRect();
@@ -93,7 +92,18 @@ controlls.forEach((e) => {
 
 show(imgIndex);
 //////////////////////////////////////////////////////////////
-const toTopBtn = document.getElementById("arrowStart");
+const toTopBtn = document.getElementById("scrollToTop");
+document.addEventListener("scroll", () => {
+  const catalog = document.querySelector(".commodityPart");
+
+  const catalogCoordination = catalog.getBoundingClientRect();
+  if (catalogCoordination.top < 33) {
+    toTopBtn.classList.add("active");
+  } else {
+    toTopBtn.classList.remove("active");
+  }
+});
+
 toTopBtn.onclick = () => {
   window.scrollTo({
     top: 0,
@@ -101,3 +111,21 @@ toTopBtn.onclick = () => {
     behavior: "smooth",
   });
 };
+/////////////////////////////////////////////////////////
+const productElems = document.querySelectorAll(".productCatalog_elem");
+
+productElems.forEach((productElem) => {
+  const productDetailsBtn = productElem.querySelector(
+    ".productCatalog_productDetalis_inDetail"
+  );
+  const moreInfoProduct = productElem.querySelector(".product_elem_moreInfo");
+
+  if (productDetailsBtn && moreInfoProduct) {
+    productDetailsBtn.onclick = () => {
+      console.log('click')
+      moreInfoProduct.classList.toggle("show");
+    };
+  } else {
+    console.error("Button or more info block not found for product element");
+  }
+});
