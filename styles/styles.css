@@ -54,6 +54,10 @@ button {
   cursor: pointer;
 }
 
+ul, li {
+  list-style: none;
+}
+
 a,
 a:visited {
   text-decoration: none;
@@ -61,10 +65,6 @@ a:visited {
 
 a:hover {
   text-decoration: none;
-}
-
-ul li {
-  list-style: none;
 }
 
 h1,
@@ -541,18 +541,10 @@ body {
 }
 .discountedProductsBlock .prev,
 .discountedProductsBlock .next {
-  -webkit-transition: -webkit-transform 0.7s ease-out;
-  transition: -webkit-transform 0.7s ease-out;
-  transition: transform 0.7s ease-out;
-  transition: transform 0.7s ease-out, -webkit-transform 0.7s ease-out;
   display: inline-block;
-  -webkit-transform-origin: center;
-          transform-origin: center;
 }
 .discountedProductsBlock .prev:hover,
 .discountedProductsBlock .next:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
   cursor: pointer;
 }
 .discountedProductsBlock .prev {
@@ -622,6 +614,22 @@ body {
 .productCatalog_elem {
   border: 1px solid black;
   padding: 15px;
+  max-width: 280px;
+  margin: 10px 28px 60px 28px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+.productCatalog_elem .productCatalog_elem_body {
+  opacity: 0;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: opacity 0.5s, height 0.5s;
+  transition: opacity 0.5s, height 0.5s;
+}
+.productCatalog_elem .productCatalog_elem_body.show {
+  opacity: 1;
+  height: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -632,13 +640,9 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 280px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  margin: 10px 28px 60px 28px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .productCatalog_elem .productCatalog_elem_nameClock {
   font-size: 19.5px;
@@ -650,6 +654,33 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+.productCatalog_elem .productCatalog_elem_details {
+  margin-top: 10px;
+  color: rgb(11, 107, 176);
+  text-transform: uppercase;
+  font-size: 21px;
+  border: none;
+}
+.productCatalog_elem .productCatalog_elem_details:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 280px;
+  width: 125px;
+  margin-left: 75px;
+  height: 2px;
+  background-color: rgb(11, 107, 176);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform 0.8s ease-out;
+  transition: -webkit-transform 0.8s ease-out;
+  transition: transform 0.8s ease-out;
+  transition: transform 0.8s ease-out, -webkit-transform 0.8s ease-out;
+}
+.productCatalog_elem .productCatalog_elem_details:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 .productCatalog_elem hr {
   border: 1px solid black;
@@ -693,76 +724,55 @@ body {
   background-color: rgb(11, 107, 176);
   -webkit-transition: background-color 1s;
   transition: background-color 1s;
-  margin-left: auto;
+  margin-left: 10px;
 }
 .productCatalog_elem .productCatalog_elem_footer .productCatalog_elem_buyBtn:hover {
   background-color: rgb(41, 144, 218);
 }
-.productCatalog_elem .productCatalog_productDetalis_inDetail {
-  margin-top: 10px;
-  border: none;
-  color: rgb(11, 107, 176);
-  font-size: 19px;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-}
-.productCatalog_elem .productCatalog_productDetalis_inDetail::after {
-  content: "";
-  position: absolute;
-  top: 26px;
-  left: -5.8px;
-  bottom: 2px;
-  width: 123px;
-  height: 2px;
-  background-color: red;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: -webkit-transform 0.7s ease-out;
-  transition: -webkit-transform 0.7s ease-out;
-  transition: transform 0.7s ease-out;
-  transition: transform 0.7s ease-out, -webkit-transform 0.7s ease-out;
-  -webkit-transform-origin: center;
-          transform-origin: center;
-}
-.productCatalog_elem .productCatalog_productDetalis_inDetail:hover::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
-}
-.productCatalog_elem .productCatalog_productDetalis_inDetail:hover {
-  cursor: pointer;
-}
 .productCatalog_elem .product_elem_moreInfo {
-  opacity: 0;
+  display: none;
   position: absolute;
-  background-color: white;
-  max-width: 280px;
-  height: 400px;
-  padding: 6px 9px;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  z-index: 1000;
+  margin-top: 17px;
+  margin-left: 13px;
+  padding: 0 10px;
+  max-width: 300px;
+  max-height: 340px;
+  overflow-y: auto;
+  opacity: 0;
+  height: 0;
+  -webkit-transition: opacity 0.5s, height 0.5s;
+  transition: opacity 0.5s, height 0.5s;
 }
-.productCatalog_elem .product_elem_moreInfo p {
+.productCatalog_elem .product_elem_moreInfo.show {
+  display: block;
+  opacity: 1;
+  height: auto;
+}
+.productCatalog_elem .product_elem_moreInfo.show li {
+  list-style: inside;
+}
+.productCatalog_elem .product_elem_moreInfo.show p {
   font-size: 19px;
   font-weight: 600;
+  margin-bottom: 8px;
 }
-.productCatalog_elem .product_elem_moreInfo span {
+.productCatalog_elem .product_elem_moreInfo.show span {
   color: rgb(11, 107, 176);
   font-size: 20px;
 }
-.productCatalog_elem .product_elem_moreInfo.show {
-  opacity: 1;
+.productCatalog_elem .product_elem_moreInfo.show .product_elem_moreInfo_backToMain {
+  text-transform: uppercase;
+  font-size: 21px;
+  margin-top: 15px;
+  color: rgb(11, 107, 176);
+  border: none;
+  cursor: pointer;
 }
 
-.footer {
-  background-color: rgb(11, 107, 176);
-  max-height: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
 .footer .footer__icon {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -792,16 +802,17 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  position: absolute;
+  top: 2590px;
+  left: 820px;
+  z-index: 1;
 }
 .footer .footer__card ul {
   margin: 0 20px;
 }
 .footer .footer__card .footer__contacts {
   width: 300px;
-  height: 180px;
+  height: 200px;
   background-color: rgb(41, 144, 218);
   border-radius: 7px;
   -webkit-box-shadow: 1px 7px 8px rgb(14, 90, 144);
@@ -812,7 +823,7 @@ body {
   padding: 10px;
 }
 .footer .footer__card .footer__contacts h2 {
-  font-size: 26px;
+  font-size: 23px;
   font-weight: 700;
   color: rgb(14, 90, 144);
 }
@@ -832,7 +843,7 @@ body {
   font-size: 23px;
   text-decoration: none;
   line-height: 25px;
-  margin: 8px 0;
+  margin-top: 8px;
   position: relative;
 }
 .footer .footer__card .footer__contacts .footer__contacts-elem a::after {
@@ -855,44 +866,12 @@ body {
           transform: scaleX(1);
 }
 .footer .footer__card .footer__contacts .footer__contacts-elem span {
-  font-size: 23px;
-  color: white;
+  font-size: 21px;
+  color: rgb(14, 90, 144);
+  font-weight: 700;
 }
 .footer .footer__card .footer__contacts .footer__contacts-elem p {
-  font-size: 23px;
-  color: white;
-  font-weight: 600;
-}
-.footer .footer__card .footer__location {
-  width: 300px;
-  height: 180px;
-  background-color: rgb(41, 144, 218);
-  border-radius: 7px;
-  -webkit-box-shadow: 1px 7px 8px rgb(14, 90, 144);
-          box-shadow: 1px 7px 8px rgb(14, 90, 144);
-  position: relative;
-  left: 20px;
-  top: 10px;
-  padding: 10px;
-}
-.footer .footer__card .footer__location h2 {
-  font-size: 26px;
-  font-weight: 700;
-  color: rgb(14, 90, 144);
-}
-.footer .footer__card .footer__location .footer__location-elem {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  padding: 6px 0;
-}
-.footer .footer__card .footer__location p {
-  margin: 12px 0;
-  font-size: 23px;
+  font-size: 20px;
   color: white;
   font-weight: 600;
 }
@@ -916,7 +895,7 @@ body {
 }
 .footer .footer_map iframe {
   width: 100%;
-  height: 350px;
+  height: 550px;
   border: none;
 }
 
