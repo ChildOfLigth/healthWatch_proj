@@ -111,21 +111,32 @@ toTopBtn.onclick = () => {
     behavior: "smooth",
   });
 };
-/////////////////////////////////////////////////////////
-const productElems = document.querySelectorAll(".productCatalog_elem");
+/////////////////////////////////////////////////////////////
+const detailsProdbtn = document.querySelectorAll(
+  ".productCatalog_elem_details"
+);
 
-productElems.forEach((productElem) => {
-  const productDetailsBtn = productElem.querySelector(
-    ".productCatalog_productDetalis_inDetail"
-  );
-  const moreInfoProduct = productElem.querySelector(".product_elem_moreInfo");
+detailsProdbtn.forEach((button) => {
+  button.onclick = () => {
+    const parent = button.closest(".productCatalog_elem");
+    const blockMoreInfo = parent.querySelector(".product_elem_moreInfo");
+    const visibleParts = parent.querySelectorAll(".productCatalog_elem_body");
 
-  if (productDetailsBtn && moreInfoProduct) {
-    productDetailsBtn.onclick = () => {
-      console.log('click')
-      moreInfoProduct.classList.toggle("show");
-    };
-  } else {
-    console.error("Button or more info block not found for product element");
-  }
+    blockMoreInfo.classList.toggle("show");
+    visibleParts.forEach((part) => part.classList.toggle("show"));
+  };
+});
+
+const backToMainBtn = document.querySelectorAll(
+  ".product_elem_moreInfo_backToMain"
+);
+
+backToMainBtn.forEach((button) => {
+  button.onclick = () => {
+    const moreInfos = document.querySelectorAll(".product_elem_moreInfo");
+    const basicInfo = document.querySelectorAll(".productCatalog_elem_body");
+
+    moreInfos.forEach((info) => info.classList.remove("show"));
+    basicInfo.forEach((block) => block.classList.add("show"));
+  };
 });
