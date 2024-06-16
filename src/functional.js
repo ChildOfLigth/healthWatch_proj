@@ -141,3 +141,30 @@ backToMainBtn.forEach((button) => {
     visibleParts.forEach((part) => part.classList.add("show"));
   };
 });
+/////////////////////////////////////////////////////
+const btnForFitnes = document.getElementById("btnforFitnes");
+const btnForRuning = document.getElementById("btnforRuning");
+const btnAllProd = document.getElementById("allProduct");
+const liElems = document.querySelectorAll(".productCatalog_elem");
+
+btnForFitnes.onclick = () => {
+  liElems.forEach((elem) => elem.classList.remove("hidden"));
+  liElems.forEach((elem) => {
+    if (!elem.classList.contains("forFitnes")) {
+      elem.classList.add("hidden");
+    }
+  });
+};
+
+btnForRuning.onclick = () => {
+  liElems.forEach((elem) => elem.classList.remove("hidden"));
+  liElems.forEach((elem) => {
+    if (!elem.classList.contains("forRuning")) {
+      elem.classList.add("hidden");
+    }
+  });
+};
+
+btnAllProd.onclick = () => {
+  liElems.forEach((elem) => elem.classList.remove("hidden"));
+};
