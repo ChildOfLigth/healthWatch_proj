@@ -572,12 +572,12 @@ body {
   border: none;
   position: fixed;
   top: 20px;
-  right: 40px;
+  right: 35px;
   -webkit-transition: opacity 0.5s ease-out, visibility 1s ease-out;
   transition: opacity 0.5s ease-out, visibility 1s ease-out;
 }
 #scrollToTop img {
-  width: 50px;
+  width: 60px;
 }
 
 #scrollToTop.active {
@@ -661,22 +661,24 @@ body {
   text-transform: uppercase;
   font-size: 21px;
   border: none;
+  position: relative;
 }
 .productCatalog_elem .productCatalog_elem_details:after {
   content: "";
   position: absolute;
+  bottom: -4px;
   left: 0;
-  top: 280px;
+  right: 0;
+  margin: 0 auto;
   width: 125px;
-  margin-left: 75px;
   height: 2px;
   background-color: rgb(11, 107, 176);
   -webkit-transform: scaleX(0);
           transform: scaleX(0);
-  -webkit-transition: -webkit-transform 0.8s ease-out;
-  transition: -webkit-transform 0.8s ease-out;
-  transition: transform 0.8s ease-out;
-  transition: transform 0.8s ease-out, -webkit-transform 0.8s ease-out;
+  -webkit-transition: -webkit-transform 0.6s ease-out;
+  transition: -webkit-transform 0.6s ease-out;
+  transition: transform 0.6s ease-out;
+  transition: transform 0.6s ease-out, -webkit-transform 0.6s ease-out;
 }
 .productCatalog_elem .productCatalog_elem_details:hover::after {
   -webkit-transform: scaleX(1);
@@ -731,26 +733,24 @@ body {
 }
 .productCatalog_elem .product_elem_moreInfo {
   display: none;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   background-color: #fff;
   z-index: 1000;
-  margin-top: 17px;
-  margin-left: 13px;
-  padding: 0 10px;
+  width: 100%;
+  padding: 10px;
   max-width: 300px;
-  max-height: 340px;
+  max-height: 0;
   overflow-y: auto;
   opacity: 0;
-  height: 0;
-  -webkit-transition: opacity 0.5s, height 0.5s;
-  transition: opacity 0.5s, height 0.5s;
+  -webkit-transition: max-height 0.5s, opacity 0.5s;
+  transition: max-height 0.5s, opacity 0.5s;
 }
 .productCatalog_elem .product_elem_moreInfo.show {
   display: block;
   opacity: 1;
-  height: auto;
+  max-height: 340px;
 }
 .productCatalog_elem .product_elem_moreInfo.show li {
   list-style: inside;
@@ -773,38 +773,13 @@ body {
   cursor: pointer;
 }
 
-.footer .footer__icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 15px 8px;
-}
-.footer .footer__icon #icon_firm {
-  width: 35px;
-  height: 35px;
-  -webkit-filter: invert(1);
-          filter: invert(1);
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-}
-.footer .footer__icon p {
-  text-transform: uppercase;
-  color: white;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  margin-left: 2px;
-}
 .footer .footer__card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  top: 2590px;
-  left: 820px;
+  top: 2610px;
+  left: 860px;
   z-index: 1;
 }
 .footer .footer__card ul {
@@ -827,7 +802,36 @@ body {
   font-weight: 700;
   color: rgb(14, 90, 144);
 }
+.footer .footer__card .footer__contacts .footer__contacts_socialNetw {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer .footer__card .footer__contacts .footer__contacts_socialNetw .footer__contacts_socialNetw_img {
+  margin: 0 12px;
+}
+.footer .footer__card .footer__contacts .footer__contacts_socialNetw .footer__contacts_socialNetw_img img {
+  width: 34px;
+  height: auto;
+  -webkit-filter: invert(100%);
+          filter: invert(100%);
+  -webkit-transition: all 0.8s ease-out;
+  transition: all 0.8s ease-out;
+}
+.footer .footer__card .footer__contacts .footer__contacts_socialNetw .footer__contacts_socialNetw_img img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
 .footer .footer__card .footer__contacts .footer__contacts-elem {
+  margin-top: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -836,34 +840,6 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 6px 0;
-}
-.footer .footer__card .footer__contacts .footer__contacts-elem a {
-  font-weight: 600;
-  color: white;
-  font-size: 23px;
-  text-decoration: none;
-  line-height: 25px;
-  margin-top: 8px;
-  position: relative;
-}
-.footer .footer__card .footer__contacts .footer__contacts-elem a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 80px;
-  height: 2px;
-  background-color: white;
-  -webkit-transform: scaleX(0);
-          transform: scaleX(0);
-  -webkit-transition: -webkit-transform 1s ease-out;
-  transition: -webkit-transform 1s ease-out;
-  transition: transform 1s ease-out;
-  transition: transform 1s ease-out, -webkit-transform 1s ease-out;
-}
-.footer .footer__card .footer__contacts .footer__contacts-elem a:hover::after {
-  -webkit-transform: scaleX(1);
-          transform: scaleX(1);
 }
 .footer .footer__card .footer__contacts .footer__contacts-elem span {
   font-size: 21px;
