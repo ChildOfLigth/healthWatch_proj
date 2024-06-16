@@ -133,10 +133,11 @@ const backToMainBtn = document.querySelectorAll(
 
 backToMainBtn.forEach((button) => {
   button.onclick = () => {
-    const moreInfos = document.querySelectorAll(".product_elem_moreInfo");
-    const basicInfo = document.querySelectorAll(".productCatalog_elem_body");
+    const parent = button.closest(".productCatalog_elem");
+    const blockMoreInfo = parent.querySelector(".product_elem_moreInfo");
+    const visibleParts = parent.querySelectorAll(".productCatalog_elem_body");
 
-    moreInfos.forEach((info) => info.classList.remove("show"));
-    basicInfo.forEach((block) => block.classList.add("show"));
+    blockMoreInfo.classList.remove("show");
+    visibleParts.forEach((part) => part.classList.add("show"));
   };
 });
