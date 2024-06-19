@@ -168,3 +168,14 @@ btnForRuning.onclick = () => {
 btnAllProd.onclick = () => {
   liElems.forEach((elem) => elem.classList.remove("hidden"));
 };
+//////////////////////////////////////////////////////////////
+const buyProductBtn = document.querySelectorAll(".productCatalog_elem_buyBtn");
+buyProductBtn.forEach((button) => {
+  button.onclick = () => {
+    const form = button
+      .closest(".productCatalog_elem_body")
+      .querySelector(".productCatalog_elem_purchaseFormClass");
+    form.classList.toggle("show");
+  };
+});
+
