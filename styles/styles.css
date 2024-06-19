@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -83,7 +85,7 @@ body {
 }
 
 body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Roboto", sans-serif;
   overflow-x: hidden;
 }
 
@@ -122,7 +124,7 @@ body {
   width: 300px;
   margin: 10px auto 7px auto;
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(150, 149, 149);
   border-radius: 5px;
 }
 .submittingTheForm._active input:hover {
@@ -142,7 +144,7 @@ body {
   border-radius: 6px;
   position: absolute;
   top: -1px;
-  left: 386px;
+  left: 360px;
   -webkit-transition: background-color 1.5s;
   transition: background-color 1.5s;
 }
@@ -256,7 +258,7 @@ body {
 .header_details .header_details__icon p {
   text-transform: uppercase;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 2px;
 }
@@ -372,7 +374,7 @@ body {
   top: 150px;
   left: 487px;
   display: none;
-  border: 1px solid black;
+  border: 1px solid rgb(150, 149, 149);
   background-color: white;
   width: 300px;
   font-size: 19px;
@@ -429,16 +431,16 @@ body {
 }
 .advantagesBlock .advantagesBlock__details h3 {
   margin-bottom: 10px;
-  font-size: 23px;
+  font-size: 22px;
   font-weight: 700;
 }
 .advantagesBlock .advantagesBlock__details p {
-  font-size: 19px;
+  font-size: 18px;
   text-align: center;
   width: 250px;
 }
 .advantagesBlock .advantagesBlock__details .advantagesBlock__details_elem {
-  margin: 20px 22px;
+  margin: 20px 10px;
   padding: 15px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -459,19 +461,19 @@ body {
   width: 90px;
   margin: 10px 0;
 }
-@media (max-width: 750px) {
+@media (max-width: 767px) {
   .advantagesBlock h1 {
     font-size: 28px;
   }
-  .advantagesBlock .advantagesBlock__details h3 {
+  .advantagesBlock .advantagesBlock .advantagesBlock__details_elem {
+    width: 90px;
+    margin: 20px 10px;
+  }
+  .advantagesBlock .advantagesBlock .advantagesBlock__details_elem h3 {
     font-size: 20px;
   }
-  .advantagesBlock .advantagesBlock__details p {
+  .advantagesBlock .advantagesBlock .advantagesBlock__details_elem p {
     font-size: 17px;
-  }
-  .advantagesBlock .advantagesBlock__details_elem {
-    width: 110px;
-    margin: 20px 18px;
   }
 }
 
@@ -571,7 +573,7 @@ body {
   visibility: hidden;
   border: none;
   position: fixed;
-  top: 20px;
+  top: 500px;
   right: 35px;
   -webkit-transition: opacity 0.5s ease-out, visibility 1s ease-out;
   transition: opacity 0.5s ease-out, visibility 1s ease-out;
@@ -589,7 +591,7 @@ body {
   margin-top: 50px;
 }
 .commodityPart h1 {
-  font-size: 30px;
+  font-size: 33px;
   color: rgb(11, 107, 176);
   font-weight: 700;
   text-align: center;
@@ -604,13 +606,19 @@ body {
           justify-content: center;
 }
 .commodityPart .sortCatalogProduct button {
-  background-color: white;
-  border: 1px solid rgb(150, 149, 149);
-  margin: 10px 5px;
   background-color: rgb(11, 107, 176);
+  border: none;
+  margin: 10px 0;
   color: white;
-  font-size: 18px;
-  padding: 10px 7px;
+  font-size: 20px;
+  padding: 10px 17px;
+  position: relative;
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
+}
+.commodityPart .sortCatalogProduct button:hover {
+  background-color: rgb(41, 144, 218);
 }
 
 .productCatalog {
@@ -618,8 +626,8 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 600px;
-          flex: 0 0 600px;
+      -ms-flex: 0 0 0px;
+          flex: 0 0 0;
   margin: 10px auto;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -633,7 +641,8 @@ body {
   opacity: 1;
   border: 1px solid rgb(150, 149, 149);
   padding: 15px;
-  max-width: 280px;
+  max-width: 310px;
+  max-height: 500px;
   margin: 10px 28px 60px 28px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -747,36 +756,72 @@ body {
   color: white;
   font-size: 18px;
   background-color: rgb(11, 107, 176);
-  -webkit-transition: background-color 1s;
-  transition: background-color 1s;
+  -webkit-transition: all 0.6s;
+  transition: all 0.6s;
   margin-left: 10px;
 }
 .productCatalog_elem .productCatalog_elem_footer .productCatalog_elem_buyBtn:hover {
   background-color: rgb(41, 144, 218);
+}
+.productCatalog_elem .productCatalog_elem_purchaseFormClass {
+  display: none;
+}
+.productCatalog_elem .productCatalog_elem_purchaseFormClass.show {
+  z-index: 1000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed; /* Изменено с absolute на fixed для фиксации позиции относительно окна */
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%); /* Сдвиг на 50% по горизонтали и вертикали для центрирования */
+  background-color: white;
+  border: 1px solid rgb(150, 149, 149);
+  padding: 10px;
+}
+.productCatalog_elem .productCatalog_elem_purchaseFormClass.show p {
+  font-size: 22px;
+}
+.productCatalog_elem .productCatalog_elem_purchaseFormClass.show p span {
+  color: rgb(11, 107, 176);
+}
+.productCatalog_elem .productCatalog_elem_purchaseFormClass.show input {
+  border: 1px solid rgb(150, 149, 149);
+  padding: 5px 7px;
+  font-size: 19px;
+  margin-top: 10px;
+  border-radius: 6px;
 }
 .productCatalog_elem .product_elem_moreInfo {
   display: none;
   position: relative;
   top: 0;
   left: 0;
-  background-color: #fff;
+  background-color: white;
   z-index: 1000;
-  width: 100%;
-  padding: 10px;
-  max-width: 300px;
-  max-height: 0;
-  overflow-y: auto;
+  width: 230px;
+  padding: 10px 0;
   opacity: 0;
   -webkit-transition: max-height 0.5s, opacity 0.5s;
   transition: max-height 0.5s, opacity 0.5s;
 }
 .productCatalog_elem .product_elem_moreInfo.show {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   opacity: 1;
-  max-height: 340px;
-}
-.productCatalog_elem .product_elem_moreInfo.show li {
-  list-style: inside;
 }
 .productCatalog_elem .product_elem_moreInfo.show p {
   font-size: 19px;
@@ -794,16 +839,28 @@ body {
   color: rgb(11, 107, 176);
   border: none;
   cursor: pointer;
+  position: relative;
+  bottom: 10px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 35px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 
 .footer .footer__card {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: absolute;
-  top: 2690px;
+  position: relative;
   left: 36%;
+  top: 180px;
   z-index: 1;
+  margin-top: 30px;
 }
 .footer .footer__card ul {
   margin: 0 20px;
