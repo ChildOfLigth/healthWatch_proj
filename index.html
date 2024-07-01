@@ -1,488 +1,386 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles/styles.css" />
     <title>HEALTH WATCH</title>
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="header">
-      <div class="header_details">
-        <div class="header_details__icon">
-          <img alt="" src="./imgs/ico/10850.png" id="icon_firm" />
-          <p>Health Watch</p>
+        <div class="header_details">
+            <div class="header_details__icon">
+                <img alt="" src="./imgs/ico/10850.png" id="icon_firm" />
+                <p>Health Watch</p>
+            </div>
+            <div class="header_details__contactsNumber">
+                <p>+380-987-527-575</p>
+                <button id="header_details__connectionBtn" class="showConnectionBlock">
+                    Связаться с нами
+                </button>
+            </div>
+            <div class="header_details__info">
+                <h1>Большой выбор Фитнес-трекеров</h1>
+                <p>На любой вкус и уровня подготовки</p>
+                <ul class="header_details__info_icons_list">
+                    <li>
+                        <img src="./imgs/ico/4187213.png" alt="" class="header_details__info_icons" />
+                        <figure>Бесплатная доставка</figure>
+                    </li>
+                    <li>
+                        <img src="./imgs/ico/tos.png" alt="" class="header_details__info_icons" />
+                        <figure>Помощь консультантов</figure>
+                    </li>
+                    <li>
+                        <img src="./imgs/ico/R.png" alt="" class="header_details__info_icons" />
+                        <figure>Низкие цены</figure>
+                    </li>
+                </ul>
+                <button id="header_details__info_consultation" class="showConnectionBlock">
+                    Консультация
+                </button>
+                <p class="navigationToCatalog">
+                    Или <a href="#commodityPart">Перейти в каталог</a>
+                </p>
+            </div>
+            <form name="submittingTheForm" class="submittingTheForm">
+                <button id="closeModalWind">×</button>
+                <p>Заполните форму для продолжения</p>
+                <input type="text" id="name" placeholder="Ваше имя.." />
+                <input type="text" id="email" placeholder="Ваш email.." />
+                <input type="text" id="numberPhone" placeholder="+380.." />
+                <button id="saveDataUser">Отправить</button>
+            </form>
         </div>
-        <div class="header_details__contactsNumber">
-          <p>+380-987-527-575</p>
-          <button
-            id="header_details__connectionBtn"
-            class="showConnectionBlock"
-          >
-            Связаться с нами
-          </button>
-        </div>
-        <div class="header_details__info">
-          <h1>Большой выбор Фитнес-трекеров</h1>
-          <p>На любой вкус и уровня подготовки</p>
-          <ul class="header_details__info_icons_list">
-            <li>
-              <img
-                src="./imgs/ico/4187213.png"
-                alt=""
-                class="header_details__info_icons"
-              />
-              <figure>Бесплатная доставка</figure>
-            </li>
-            <li>
-              <img
-                src="./imgs/ico/tos.png"
-                alt=""
-                class="header_details__info_icons"
-              />
-              <figure>Помощь консультантов</figure>
-            </li>
-            <li>
-              <img
-                src="./imgs/ico/R.png"
-                alt=""
-                class="header_details__info_icons"
-              />
-              <figure>Низкие цены</figure>
-            </li>
-          </ul>
-          <button
-            id="header_details__info_consultation"
-            class="showConnectionBlock"
-          >
-            Консультация
-          </button>
-          <p class="navigationToCatalog">
-            Или <a href="#commodityPart">Перейти в каталог</a>
-          </p>
-        </div>
-        <form name="submittingTheForm" class="submittingTheForm">
-          <button id="closeModalWind">×</button>
-          <p>Заполните форму для продолжения</p>
-          <input type="text" id="name" placeholder="Ваше имя.." />
-          <input type="text" id="email" placeholder="Ваш email.." />
-          <input type="text" id="numberPhone" placeholder="+380.." />
-          <button id="saveDataUser">Отправить</button>
-        </form>
-      </div>
     </div>
     <div class="advantagesBlock">
-      <h1>Почему Вам стоит выбрать именно нас?</h1>
-      <ul class="advantagesBlock__details">
-        <li class="advantagesBlock__details_elem">
-          <h3>Помощь другу</h3>
-          <img
-            src="./imgs/ico/1001213.png"
-            alt="ico"
-            id="advantagesBlock__details_icon"
-          />
-          <p>
-            Мы с радостью поможем Вам выбрать часы в связи с Вашими желаниями и
-            бюджетом.
-          </p>
-        </li>
-        <li class="advantagesBlock__details_elem">
-          <h3>Безопасная доставка</h3>
-          <img
-            src="./imgs/ico/1942803.png"
-            alt="ico"
-            id="advantagesBlock__details_icon"
-          />
-          <p>
-            Вам не нужно переживать за свой товар. Наши работники качественно и
-            надежно его упакуют.
-          </p>
-        </li>
-        <li class="advantagesBlock__details_elem">
-          <h3>Хорошее качество</h3>
-          <img
-            src="./imgs/ico/high-quality.png"
-            alt="ico"
-            id="advantagesBlock__details_icon"
-          />
-          <p>
-            Наши товары качественны, но при этом цены достаточно низкие и
-            доступные.
-          </p>
-        </li>
-      </ul>
+        <h1>Почему Вам стоит выбрать именно нас?</h1>
+        <ul class="advantagesBlock__details">
+            <li class="advantagesBlock__details_elem">
+                <h3>Помощь другу</h3>
+                <img src="./imgs/ico/1001213.png" alt="ico" id="advantagesBlock__details_icon" />
+                <p>
+                    Мы с радостью поможем Вам выбрать часы в связи с Вашими желаниями и
+                    бюджетом.
+                </p>
+            </li>
+            <li class="advantagesBlock__details_elem">
+                <h3>Безопасная доставка</h3>
+                <img src="./imgs/ico/1942803.png" alt="ico" id="advantagesBlock__details_icon" />
+                <p>
+                    Вам не нужно переживать за свой товар. Наши работники качественно и
+                    надежно его упакуют.
+                </p>
+            </li>
+            <li class="advantagesBlock__details_elem">
+                <h3>Хорошее качество</h3>
+                <img src="./imgs/ico/high-quality.png" alt="ico" id="advantagesBlock__details_icon" />
+                <p>
+                    Наши товары качественны, но при этом цены достаточно низкие и
+                    доступные.
+                </p>
+            </li>
+        </ul>
     </div>
 
     <div class="discountedProductsBlock">
-      <h1>Товары со скидками</h1>
-      <div class="discountedProductsBlock__slider">
-        <img
-          src="./imgs/photo_2024-06-06_20-02-07.jpg"
-          alt=""
-          class="discountedProductsBlock__slider_img active"
-        />
-        <img
-          src="./imgs/photo_2024-06-06_19-00-09 (2).jpg"
-          alt=""
-          class="discountedProductsBlock__slider_img"
-        />
-        <img
-          src="./imgs/photo_2024-06-06_19-00-09.jpg"
-          alt=""
-          class="discountedProductsBlock__slider_img"
-        />
+        <h1>Товары со скидками</h1>
+        <div class="discountedProductsBlock__slider">
+            <img src="./imgs/photo_2024-06-06_20-02-07.jpg" alt="" class="discountedProductsBlock__slider_img active" />
+            <img src="./imgs/photo_2024-06-06_19-00-09 (2).jpg" alt="" class="discountedProductsBlock__slider_img" />
+            <img src="./imgs/photo_2024-06-06_19-00-09.jpg" alt="" class="discountedProductsBlock__slider_img" />
 
-        <div class="prev controlls">
-          <img
-            src="./imgs/ico/566092.png"
-            alt=""
-            style="opacity: 1; height: 30px"
-          />
-        </div>
+            <div class="prev controlls">
+                <img src="./imgs/ico/566092.png" alt="" style="opacity: 1; height: 30px" />
+            </div>
 
-        <div class="next controlls">
-          <img
-            src="./imgs/ico/60758.png"
-            alt=""
-            style="opacity: 1; height: 30px"
-          />
+            <div class="next controlls">
+                <img src="./imgs/ico/60758.png" alt="" style="opacity: 1; height: 30px" />
+            </div>
         </div>
-      </div>
     </div>
 
     <button id="scrollToTop" title="Вернуться к началу">
-      <img src="./imgs/ico/free-icon-up-arrow-5817906.png" alt="scrollBtn" />
+        <img src="./imgs/ico/free-icon-up-arrow-5817906.png" alt="scrollBtn" />
     </button>
 
     <div class="commodityPart" id="commodityPart">
-      <h1>Каталог товаров</h1>
-      <div class="sortCatalogProduct">
-        <button id="allProduct">Все товары</button>
-        <button id="btnforFitnes">Для фитнеса</button>
-        <button id="btnforRuning">Для бега</button>
-      </div>
-      <ul class="productCatalog">
-        <li class="productCatalog_elem">
-          <div class="productCatalog_elem_body show">
-            <p class="productCatalog_elem_nameClock">
-              Xiaomi Smart Band 8 Black
-            </p>
-            <img
-              src="./imgs/367323210.webp"
-              alt="prod"
-              class="productCatalog_elem_img"
-            />
-            <button class="productCatalog_elem_details">Подробнее</button>
-            <hr />
-            <div class="productCatalog_elem_footer">
-              <p class="discount">236грн</p>
-              <p class="defaultPrice">279грн</p>
-              <button class="productCatalog_elem_buyBtn">Купить</button>
-            </div>
-            <form
-              name="productCatalog_elem_purchaseForm"
-              class="productCatalog_elem_purchaseFormClass"
-            >
-              <p>Ваш товар: <span>Xiaomi Smart Band 8 Black</span></p>
-              <input type="text" name="nameUs" placeholder="Ваше имя.." />
-              <input type="email" name="emailUs" placeholder="Ваш email.." />
-              <input type="text" name="numberUs" placeholder="380+.." />
-            </form>
-          </div>
-          <div class="product_elem_moreInfo">
-            <p>
-              <span>Фитнес-функции:</span>Содержание кислорода в крови, Шагомер
-            </p>
-            <p>
-              <span>Звонки и оповещения: </span>Уведомление о вызове,
-              Уведомление о сообщениях,
-            </p>
-            <p><span>Размеры:</span>48 x 22.5 x 10.99 мм</p>
-            <p><span>Матрица:</span>AMOLED</p>
-            <button class="product_elem_moreInfo_backToMain">Назад</button>
-          </div>
-        </li>
+        <h1>Каталог товаров</h1>
+        <div class="sortCatalogProduct">
+            <button id="allProduct">Все товары</button>
+            <button id="btnforFitnes">Для фитнеса</button>
+            <button id="btnforRuning">Для бега</button>
+        </div>
+        <ul class="productCatalog">
+            <li class="productCatalog_elem">
+                <div class="productCatalog_elem_body show">
+                    <p class="productCatalog_elem_nameClock">
+                        Xiaomi Smart Band 8 Black
+                    </p>
+                    <img src="./imgs/367323210.webp" alt="prod" class="productCatalog_elem_img" />
+                    <button class="productCatalog_elem_details">Подробнее</button>
+                    <hr />
+                    <div class="productCatalog_elem_footer">
+                        <p class="discount">236грн</p>
+                        <p class="defaultPrice">279грн</p>
+                        <button class="productCatalog_elem_buyBtn">Купить</button>
+                    </div>
+                    <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
+                        <p>Ваш товар: <span>Xiaomi Smart Band 8 Black</span></p>
+                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" name="emailUs" placeholder="Ваш email.." />
+                        <input type="text" name="numberUs" placeholder="380+.." />
+                    </form>
+                </div>
+                <div class="product_elem_moreInfo">
+                    <p>
+                        <span>Фитнес-функции:</span>Содержание кислорода в крови, Шагомер
+                    </p>
+                    <p>
+                        <span>Звонки и оповещения: </span>Уведомление о вызове,
+                        Уведомление о сообщениях,
+                    </p>
+                    <p><span>Размеры:</span>48 x 22.5 x 10.99 мм</p>
+                    <p><span>Матрица:</span>AMOLED</p>
+                    <button class="product_elem_moreInfo_backToMain">Назад</button>
+                </div>
+            </li>
 
-        <li class="productCatalog_elem">
-          <div class="productCatalog_elem_body show">
-            <p class="productCatalog_elem_nameClock">
-              Xiaomi Mi Smart Band 8Pro
-            </p>
-            <img
-              src="./imgs/412876894.webp"
-              alt="prod"
-              class="productCatalog_elem_img"
-              style="width: 165px"
-            />
-            <button class="productCatalog_elem_details">Подробнее</button>
-            <hr />
-            <div class="productCatalog_elem_footer">
-              <p class="default">250грн</p>
-              <button class="productCatalog_elem_buyBtn">Купить</button>
-            </div>
-            <form
-              name="productCatalog_elem_purchaseForm"
-              class="productCatalog_elem_purchaseFormClass"
-            >
-              <p>Ваш товар: <span>Xiaomi Mi Smart Band 8Pro</span></p>
-              <input type="text" name="nameUs" placeholder="Ваше имя.." />
-              <input type="email" name="emailUs" placeholder="Ваш email.." />
-              <input type="text" name="numberUs" placeholder="380+.." />
-            </form>
-          </div>
-          <div class="product_elem_moreInfo">
-            <p>
-              <span>Фитнес-функции: </span>Пульсометр, Содержание кислорода в
-              крови, Счетчик калорий, Шагомер,
-            </p>
-            <p>
-              <span>Звонки и оповещения: </span>Вибрация, Уведомление о вызове,
-              Уведомление о сообщениях,
-            </p>
-            <p><span>Размеры: </span>46 x 33.35 x 9.99 мм</p>
-            <p><span>Матрица:</span>AMOLED</p>
-            <button class="product_elem_moreInfo_backToMain">Назад</button>
-          </div>
-        </li>
+            <li class="productCatalog_elem">
+                <div class="productCatalog_elem_body show">
+                    <p class="productCatalog_elem_nameClock">
+                        Xiaomi Mi Smart Band 8Pro
+                    </p>
+                    <img src="./imgs/412876894.webp" alt="prod" class="productCatalog_elem_img" style="width: 165px" />
+                    <button class="productCatalog_elem_details">Подробнее</button>
+                    <hr />
+                    <div class="productCatalog_elem_footer">
+                        <p class="default">250грн</p>
+                        <button class="productCatalog_elem_buyBtn">Купить</button>
+                    </div>
+                    <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
+                        <p>Ваш товар: <span>Xiaomi Mi Smart Band 8Pro</span></p>
+                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" name="emailUs" placeholder="Ваш email.." />
+                        <input type="text" name="numberUs" placeholder="380+.." />
+                    </form>
+                </div>
+                <div class="product_elem_moreInfo">
+                    <p>
+                        <span>Фитнес-функции: </span>Пульсометр, Содержание кислорода в
+                        крови, Счетчик калорий, Шагомер,
+                    </p>
+                    <p>
+                        <span>Звонки и оповещения: </span>Вибрация, Уведомление о вызове,
+                        Уведомление о сообщениях,
+                    </p>
+                    <p><span>Размеры: </span>46 x 33.35 x 9.99 мм</p>
+                    <p><span>Матрица:</span>AMOLED</p>
+                    <button class="product_elem_moreInfo_backToMain">Назад</button>
+                </div>
+            </li>
 
-        <li class="productCatalog_elem forFitnes">
-          <div class="productCatalog_elem_body show">
-            <p class="productCatalog_elem_nameClock">Lemfo P3 Plus з ЕКГ</p>
-            <img
-              src="./imgs/photo_2024-06-02_20-43-00.jpg"
-              alt="prod"
-              class="productCatalog_elem_img"
-            />
-            <button class="productCatalog_elem_details">Подробнее</button>
-            <hr />
-            <div class="productCatalog_elem_footer">
-              <p class="default">300грн</p>
-              <button class="productCatalog_elem_buyBtn">Купить</button>
-            </div>
-            <form
-              name="productCatalog_elem_purchaseForm"
-              class="productCatalog_elem_purchaseFormClass"
-            >
-              <p>Ваш товар: <span>Lemfo P3 Plus з ЕКГ</span></p>
-              <input type="text" name="nameUs" placeholder="Ваше имя.." />
-              <input type="email" name="emailUs" placeholder="Ваш email.." />
-              <input type="text" name="numberUs" placeholder="380+.." />
-            </form>
-          </div>
-          <ul class="product_elem_moreInfo">
-            <li>
-              <p>
-                <span>Фитнес-функции:</span>Контроль дневной активности,
-                Пройденное расстояние, Пульсометр, Счетчик калорий, Шагомер,
-              </p>
+            <li class="productCatalog_elem forFitnes">
+                <div class="productCatalog_elem_body show">
+                    <p class="productCatalog_elem_nameClock">Lemfo P3 Plus з ЕКГ</p>
+                    <img src="./imgs/photo_2024-06-02_20-43-00.jpg" alt="prod" class="productCatalog_elem_img" />
+                    <button class="productCatalog_elem_details">Подробнее</button>
+                    <hr />
+                    <div class="productCatalog_elem_footer">
+                        <p class="default">300грн</p>
+                        <button class="productCatalog_elem_buyBtn">Купить</button>
+                    </div>
+                    <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
+                        <p>Ваш товар: <span>Lemfo P3 Plus з ЕКГ</span></p>
+                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" name="emailUs" placeholder="Ваш email.." />
+                        <input type="text" name="numberUs" placeholder="380+.." />
+                    </form>
+                </div>
+                <ul class="product_elem_moreInfo">
+                    <li>
+                        <p>
+                            <span>Фитнес-функции:</span>Контроль дневной активности,
+                            Пройденное расстояние, Пульсометр, Счетчик калорий, Шагомер,
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <span>Звонки и оповещения: </span>Вибрация, Уведомление о
+                            вызове,
+                        </p>
+                    </li>
+                    <li>
+                        <p><span>Размеры:</span>260х21х12 мм</p>
+                    </li>
+                    <li>
+                        <p><span>Матрица:</span>TFT</p>
+                    </li>
+                    <button class="product_elem_moreInfo_backToMain">Назад</button>
+                </ul>
             </li>
-            <li>
-              <p>
-                <span>Звонки и оповещения: </span>Вибрация, Уведомление о
-                вызове,
-              </p>
-            </li>
-            <li>
-              <p><span>Размеры:</span>260х21х12 мм</p>
-            </li>
-            <li>
-              <p><span>Матрица:</span>TFT</p>
-            </li>
-            <button class="product_elem_moreInfo_backToMain">Назад</button>
-          </ul>
-        </li>
 
-        <li class="productCatalog_elem forFitnes">
-          <div class="productCatalog_elem_body show">
-            <p class="productCatalog_elem_nameClock">Xiaomi Mi Smart Band 7</p>
-            <img
-              src="./imgs/272023891.webp"
-              alt="prod"
-              class="productCatalog_elem_img"
-            />
-            <button class="productCatalog_elem_details">Подробнее</button>
-            <hr />
-            <div class="productCatalog_elem_footer">
-              <p class="discount">290грн</p>
-              <p class="defaultPrice">350грн</p>
-              <button class="productCatalog_elem_buyBtn">Купить</button>
-            </div>
-            <form
-              name="productCatalog_elem_purchaseForm"
-              class="productCatalog_elem_purchaseFormClass"
-            >
-              <p>Ваш товар: <span>Xiaomi Mi Smart Band 7</span></p>
-              <input type="text" name="nameUs" placeholder="Ваше имя.." />
-              <input type="email" name="emailUs" placeholder="Ваш email.." />
-              <input type="text" name="numberUs" placeholder="380+.." />
-            </form>
-          </div>
-          <ul class="product_elem_moreInfo">
-            <li>
-              <p>
-                <span>Фитнес-функции:</span>Контроль дневной активности,
-                Пульсометр, Секундомер, Содержание кислорода в крови, Счетчик
-                калорий, Фитнес-тренер,
-              </p>
+            <li class="productCatalog_elem forFitnes">
+                <div class="productCatalog_elem_body show">
+                    <p class="productCatalog_elem_nameClock">Xiaomi Mi Smart Band 7</p>
+                    <img src="./imgs/272023891.webp" alt="prod" class="productCatalog_elem_img" />
+                    <button class="productCatalog_elem_details">Подробнее</button>
+                    <hr />
+                    <div class="productCatalog_elem_footer">
+                        <p class="discount">290грн</p>
+                        <p class="defaultPrice">350грн</p>
+                        <button class="productCatalog_elem_buyBtn">Купить</button>
+                    </div>
+                    <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
+                        <p>Ваш товар: <span>Xiaomi Mi Smart Band 7</span></p>
+                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" name="emailUs" placeholder="Ваш email.." />
+                        <input type="text" name="numberUs" placeholder="380+.." />
+                    </form>
+                </div>
+                <ul class="product_elem_moreInfo">
+                    <li>
+                        <p>
+                            <span>Фитнес-функции:</span>Контроль дневной активности,
+                            Пульсометр, Секундомер, Содержание кислорода в крови, Счетчик
+                            калорий, Фитнес-тренер,
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <span>Звонки и оповещения: </span> Вибрация, Уведомление о
+                            вызове, Уведомление о сообщениях
+                        </p>
+                    </li>
+                    <li>
+                        <p><span>Размеры:</span>46.5 x 20.7 x 12.25 мм</p>
+                    </li>
+                    <li>
+                        <p><span>Матрица:</span>AMOLED</p>
+                    </li>
+                    <button class="product_elem_moreInfo_backToMain">Назад</button>
+                </ul>
             </li>
-            <li>
-              <p>
-                <span>Звонки и оповещения: </span> Вибрация, Уведомление о
-                вызове, Уведомление о сообщениях
-              </p>
-            </li>
-            <li>
-              <p><span>Размеры:</span>46.5 x 20.7 x 12.25 мм</p>
-            </li>
-            <li>
-              <p><span>Матрица:</span>AMOLED</p>
-            </li>
-            <button class="product_elem_moreInfo_backToMain">Назад</button>
-          </ul>
-        </li>
 
-        <li class="productCatalog_elem forRuning">
-          <div class="productCatalog_elem_body show">
-            <p class="productCatalog_elem_nameClock">Lemfo C6T</p>
-            <img
-              src="./imgs/188525068.webp"
-              alt="prod"
-              class="productCatalog_elem_img"
-              style="width: 225px"
-            />
-            <button class="productCatalog_elem_details">Подробнее</button>
-            <hr />
-            <div class="productCatalog_elem_footer">
-              <p class="discount">350грн</p>
-              <p class="defaultPrice">410грн</p>
-              <button class="productCatalog_elem_buyBtn">Купить</button>
-            </div>
-            <form
-              name="productCatalog_elem_purchaseForm"
-              class="productCatalog_elem_purchaseFormClass"
-            >
-              <p>Ваш товар: <span>Lemfo C6T</span></p>
-              <input type="text" name="nameUs" placeholder="Ваше имя.." />
-              <input type="email" name="emailUs" placeholder="Ваш email.." />
-              <input type="text" name="numberUs" placeholder="380+.." />
-            </form>
-          </div>
-          <ul class="product_elem_moreInfo">
-            <li>
-              <p>
-                <span> Фитнес-функции: </span>Пульсометр, Секундомер, Скорость
-                движения, Содержание кислорода в крови, Счетчик калорий, Умный
-                будильник, Функция плавания, Шагомер
-              </p>
+            <li class="productCatalog_elem forRuning">
+                <div class="productCatalog_elem_body show">
+                    <p class="productCatalog_elem_nameClock">Lemfo C6T</p>
+                    <img src="./imgs/188525068.webp" alt="prod" class="productCatalog_elem_img" style="width: 225px" />
+                    <button class="productCatalog_elem_details">Подробнее</button>
+                    <hr />
+                    <div class="productCatalog_elem_footer">
+                        <p class="discount">350грн</p>
+                        <p class="defaultPrice">410грн</p>
+                        <button class="productCatalog_elem_buyBtn">Купить</button>
+                    </div>
+                    <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
+                        <p>Ваш товар: <span>Lemfo C6T</span></p>
+                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" name="emailUs" placeholder="Ваш email.." />
+                        <input type="text" name="numberUs" placeholder="380+.." />
+                    </form>
+                </div>
+                <ul class="product_elem_moreInfo">
+                    <li>
+                        <p>
+                            <span> Фитнес-функции: </span>Пульсометр, Секундомер, Скорость
+                            движения, Содержание кислорода в крови, Счетчик калорий, Умный
+                            будильник, Функция плавания, Шагомер
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            <span>Звонки и оповещения: </span> Вибрация, Уведомление о
+                            вызове, Уведомление о сообщениях
+                        </p>
+                    </li>
+                    <li>
+                        <p><span>Размеры:</span>46.5 x 20.7 x 12.25 мм</p>
+                    </li>
+                    <li>
+                        <p><span>Матрица:</span>TFT</p>
+                    </li>
+                    <button class="product_elem_moreInfo_backToMain">Назад</button>
+                </ul>
             </li>
-            <li>
-              <p>
-                <span>Звонки и оповещения: </span> Вибрация, Уведомление о
-                вызове, Уведомление о сообщениях
-              </p>
-            </li>
-            <li>
-              <p><span>Размеры:</span>46.5 x 20.7 x 12.25 мм</p>
-            </li>
-            <li>
-              <p><span>Матрица:</span>TFT</p>
-            </li>
-            <button class="product_elem_moreInfo_backToMain">Назад</button>
-          </ul>
-        </li>
 
-        <li class="productCatalog_elem forFitnes">
-          <div class="productCatalog_elem_body show">
-            <p class="productCatalog_elem_nameClock">Smart Band M6 Pink</p>
-            <img
-              src="./imgs/227333731.webp"
-              alt="prod"
-              class="productCatalog_elem_img"
-              style="width: 225px"
-            />
-            <button class="productCatalog_elem_details">Подробнее</button>
-            <hr />
-            <div class="productCatalog_elem_footer">
-              <p class="default">299грн</p>
-              <button class="productCatalog_elem_buyBtn">Купить</button>
-            </div>
-            <form
-              name="productCatalog_elem_purchaseForm"
-              class="productCatalog_elem_purchaseFormClass"
-            >
-              <p>Ваш товар: <span>Smart Band M6 Pink</span></p>
-              <input type="text" name="nameUs" placeholder="Ваше имя.." />
-              <input type="email" name="emailUs" placeholder="Ваш email.." />
-              <input type="text" name="numberUs" placeholder="380+.." />
-            </form>
-          </div>
-          <ul class="product_elem_moreInfo">
-            <li>
-              <p>
-                <span> Фитнес-функции:</span>
-                Звонки и оповещения, Уведомление о сообщениях, Контроль
-                сердечного ритма
-              </p>
+            <li class="productCatalog_elem forFitnes">
+                <div class="productCatalog_elem_body show">
+                    <p class="productCatalog_elem_nameClock">Smart Band M6 Pink</p>
+                    <img src="./imgs/227333731.webp" alt="prod" class="productCatalog_elem_img" style="width: 225px" />
+                    <button class="productCatalog_elem_details">Подробнее</button>
+                    <hr />
+                    <div class="productCatalog_elem_footer">
+                        <p class="default">299грн</p>
+                        <button class="productCatalog_elem_buyBtn">Купить</button>
+                    </div>
+                    <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
+                        <p>Ваш товар: <span>Smart Band M6 Pink</span></p>
+                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" name="emailUs" placeholder="Ваш email.." />
+                        <input type="text" name="numberUs" placeholder="380+.." />
+                    </form>
+                </div>
+                <ul class="product_elem_moreInfo">
+                    <li>
+                        <p>
+                            <span> Фитнес-функции:</span>
+                            Звонки и оповещения, Уведомление о сообщениях, Контроль
+                            сердечного ритма
+                        </p>
+                    </li>
+                    <li>
+                        <p><span>Звонки и оповещения: </span>Уведомление о сообщениях</p>
+                    </li>
+                    <li>
+                        <p><span>Размеры:</span>47,4 × 18,6 × 12,7 мм</p>
+                    </li>
+                    <li>
+                        <p><span>Матрица:</span>TFT</p>
+                    </li>
+                    <button class="product_elem_moreInfo_backToMain">Назад</button>
+                </ul>
             </li>
-            <li>
-              <p><span>Звонки и оповещения: </span>Уведомление о сообщениях</p>
-            </li>
-            <li>
-              <p><span>Размеры:</span>47,4 × 18,6 × 12,7 мм</p>
-            </li>
-            <li>
-              <p><span>Матрица:</span>TFT</p>
-            </li>
-            <button class="product_elem_moreInfo_backToMain">Назад</button>
-          </ul>
-        </li>
-      </ul>
+        </ul>
     </div>
 
     <div class="footer">
-      <div class="footer__card">
-        <ul class="footer__contacts">
-          <div class="footer__contacts_socialNetw">
-            <li class="footer__contacts_socialNetw_img">
-              <a
-                href="https://github.com/ChildOfLigth"
-                title="my GitHub"
-                target="_blank"
-                ><img
-                  src="./imgs/ico/github3.png"
-                  alt="github"
-                  style="width: 40px"
-              /></a>
-            </li>
+        <div class="footer__card">
+            <ul class="footer__contacts">
+                <div class="footer__contacts_socialNetw">
+                    <li class="footer__contacts_socialNetw_img">
+                        <a href="https://github.com/ChildOfLigth" title="my GitHub" target="_blank"><img
+                                src="./imgs/ico/github3.png" alt="github" style="width: 40px" /></a>
+                    </li>
 
-            <li class="footer__contacts_socialNetw_img">
-              <img src="./imgs/ico/telegram1.png" alt="telegram" />
-            </li>
+                    <li class="footer__contacts_socialNetw_img">
+                        <img src="./imgs/ico/telegram1.png" alt="telegram" />
+                    </li>
 
-            <li class="footer__contacts_socialNetw_img">
-              <img src="./imgs/ico/1077042.png" alt="instagram" />
-            </li>
-          </div>
+                    <li class="footer__contacts_socialNetw_img">
+                        <img src="./imgs/ico/1077042.png" alt="instagram" />
+                    </li>
+                </div>
 
-          <li class="footer__contacts-elem">
-            <p>Киев, улица Пушкина 22</p>
-          </li>
-        </ul>
-      </div>
+                <li class="footer__contacts-elem">
+                    <p>Киев, улица Пушкина 22</p>
+                </li>
+            </ul>
+        </div>
 
-      <div class="footer_map">
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d96641.87770030234!2d30.491082250668907!3d50.46798253955141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0xa013ea0b6c4b7dc5!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1718560169125!5m2!1sru!2sua"
-          style="border: 0"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
-      </div>
+        <div class="footer_map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d96641.87770030234!2d30.491082250668907!3d50.46798253955141!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cf4ee15a4505%3A0xa013ea0b6c4b7dc5!2z0JrQuNC10LIsIDAyMDAw!5e0!3m2!1sru!2sua!4v1718560169125!5m2!1sru!2sua"
+                style="border: 0" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
     </div>
     <button id="arrowStart" title="Вернуться к началу">
-      <img src="./imgs/ico/Up-Arrow-Transparent-Images.png" alt="ico" />
+        <img src="./imgs/ico/Up-Arrow-Transparent-Images.png" alt="ico" />
     </button>
     <script src="./src/functional.js" type="module"></script>
-  </body>
+</body>
+
 </html>
