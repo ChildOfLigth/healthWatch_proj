@@ -10,53 +10,53 @@ const showDataUser = document.createElement("div");
 showDataUser.className = "idntityConfirmResponse";
 
 buttonShowConnWindow.forEach((buttElem) => {
-  buttElem.onclick = () => {
-    form.classList.add("_active");
-  };
+    buttElem.onclick = () => {
+        form.classList.add("_active");
+    };
 });
 
 closeMdlWindow.onclick = () => form.classList.remove("_active");
 document.onkeydown = (event) => {
-  if (event.key == "Escape") {
-    form.classList.remove("_active");
-  }
+    if (event.key == "Escape") {
+        form.classList.remove("_active");
+    }
 };
 
 saveDataBtn.onclick = () => {
-  const valueName = nameInp.value;
-  const valueNumberPh = numberInp.value;
-  const valueEmail = emailInp.value;
+    const valueName = nameInp.value;
+    const valueNumberPh = numberInp.value;
+    const valueEmail = emailInp.value;
 
-  if (valueName && valueEmail && valueNumberPh) {
-    showDataUser.innerHTML = `
+    if (valueName && valueEmail && valueNumberPh) {
+        showDataUser.innerHTML = `
       <p><span>${valueName}</span>, ваша заявка принята! Мы пришлем Вам сообщение на почту или позвоним на указанный Вами номер.</p>
     `;
-    showDataUser.classList.add("_active");
-    nameInp.value = "";
-    numberInp.value = "";
-    emailInp.value = "";
-    headerElem.appendChild(showDataUser);
-    form.classList.remove("_active");
-  } else {
-    showDataUser.innerHTML = `Введите данные во все поля.`;
-    showDataUser.classList.add("_active");
-    headerElem.appendChild(showDataUser);
-  }
-  setTimeout(() => showDataUser.classList.remove("_active"), 4000);
+        showDataUser.classList.add("_active");
+        nameInp.value = "";
+        numberInp.value = "";
+        emailInp.value = "";
+        headerElem.appendChild(showDataUser);
+        form.classList.remove("_active");
+    } else {
+        showDataUser.innerHTML = `Введите данные во все поля.`;
+        showDataUser.classList.add("_active");
+        headerElem.appendChild(showDataUser);
+    }
+    setTimeout(() => showDataUser.classList.remove("_active"), 4000);
 };
 
 form.onsubmit = (event) => {
-  event.preventDefault();
+    event.preventDefault();
 };
 
 ////////////////////////////////////////////////////////////////////////////////
 document.addEventListener("scroll", () => {
-  const advBlock = document.querySelector(".advantagesBlock");
-  const targetPosition = advBlock.getBoundingClientRect();
+    const advBlock = document.querySelector(".advantagesBlock");
+    const targetPosition = advBlock.getBoundingClientRect();
 
-  if (targetPosition.top >= 540) {
-    advBlock.classList.add("__show");
-  }
+    if (targetPosition.top >= 540) {
+        advBlock.classList.add("__show");
+    }
 });
 
 ///////////////////////////////////////////////////////////////////////////
@@ -65,81 +65,81 @@ const controlls = document.querySelectorAll(".controlls");
 let imgIndex = 0;
 
 const show = (index) => {
-  imgs[imgIndex].classList.remove("active");
-  imgs[index].classList.add("active");
-  imgIndex = index;
+    imgs[imgIndex].classList.remove("active");
+    imgs[index].classList.add("active");
+    imgIndex = index;
 };
 
 controlls.forEach((e) => {
-  e.addEventListener("click", (event) => {
-    if (event.currentTarget.classList.contains("prev")) {
-      let index = imgIndex - 1;
+    e.addEventListener("click", (event) => {
+        if (event.currentTarget.classList.contains("prev")) {
+            let index = imgIndex - 1;
 
-      if (index < 0) {
-        index = imgs.length - 1;
-      }
-      show(index);
-    } else if (event.currentTarget.classList.contains("next")) {
-      let index = imgIndex + 1;
+            if (index < 0) {
+                index = imgs.length - 1;
+            }
+            show(index);
+        } else if (event.currentTarget.classList.contains("next")) {
+            let index = imgIndex + 1;
 
-      if (index >= imgs.length) {
-        index = 0;
-      }
-      show(index);
-    }
-  });
+            if (index >= imgs.length) {
+                index = 0;
+            }
+            show(index);
+        }
+    });
 });
 
 show(imgIndex);
 //////////////////////////////////////////////////////////////
 const toTopBtn = document.getElementById("scrollToTop");
 document.addEventListener("scroll", () => {
-  const catalog = document.querySelector(".commodityPart");
+    const catalog = document.querySelector(".commodityPart");
 
-  const catalogCoordination = catalog.getBoundingClientRect();
-  if (catalogCoordination.top < 33) {
-    toTopBtn.classList.add("active");
-  } else {
-    toTopBtn.classList.remove("active");
-  }
+    const catalogCoordination = catalog.getBoundingClientRect();
+    if (catalogCoordination.top < 33) {
+        toTopBtn.classList.add("active");
+    } else {
+        toTopBtn.classList.remove("active");
+    }
 });
 
 toTopBtn.onclick = () => {
-  window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: "smooth",
-  });
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    });
 };
 /////////////////////////////////////////////////////////////
 const detailsProdbtn = document.querySelectorAll(
-  ".productCatalog_elem_details"
+    ".productCatalog_elem_details"
 );
 
 detailsProdbtn.forEach((button) => {
-  button.onclick = () => {
-    const parent = button.closest(".productCatalog_elem");
-    const blockMoreInfo = parent.querySelector(".product_elem_moreInfo");
-    const visibleParts = parent.querySelectorAll(".productCatalog_elem_body");
+    button.onclick = () => {
+        const parent = button.closest(".productCatalog_elem");
+        const blockMoreInfo = parent.querySelector(".product_elem_moreInfo");
+        const visibleParts = parent.querySelectorAll(".productCatalog_elem_body");
 
-    blockMoreInfo.classList.toggle("show");
-    visibleParts.forEach((part) => part.classList.toggle("show"));
-  };
+        blockMoreInfo.classList.toggle("show");
+        visibleParts.forEach((part) => part.classList.toggle("show"));
+    };
 });
 
 const backToMainBtn = document.querySelectorAll(
-  ".product_elem_moreInfo_backToMain"
+    ".product_elem_moreInfo_backToMain"
 );
 
 backToMainBtn.forEach((button) => {
-  button.onclick = () => {
-    const parent = button.closest(".productCatalog_elem");
-    const blockMoreInfo = parent.querySelector(".product_elem_moreInfo");
-    const visibleParts = parent.querySelectorAll(".productCatalog_elem_body");
+    button.onclick = () => {
+        const parent = button.closest(".productCatalog_elem");
+        const blockMoreInfo = parent.querySelector(".product_elem_moreInfo");
+        const visibleParts = parent.querySelectorAll(".productCatalog_elem_body");
 
-    blockMoreInfo.classList.remove("show");
-    visibleParts.forEach((part) => part.classList.add("show"));
-  };
+        blockMoreInfo.classList.remove("show");
+        visibleParts.forEach((part) => part.classList.add("show"));
+    };
 });
 /////////////////////////////////////////////////////
 const btnForFitnes = document.getElementById("btnforFitnes");
@@ -148,34 +148,33 @@ const btnAllProd = document.getElementById("allProduct");
 const liElems = document.querySelectorAll(".productCatalog_elem");
 
 btnForFitnes.onclick = () => {
-  liElems.forEach((elem) => elem.classList.remove("hidden"));
-  liElems.forEach((elem) => {
-    if (!elem.classList.contains("forFitnes")) {
-      elem.classList.add("hidden");
-    }
-  });
+    liElems.forEach((elem) => elem.classList.remove("hidden"));
+    liElems.forEach((elem) => {
+        if (!elem.classList.contains("forFitnes")) {
+            elem.classList.add("hidden");
+        }
+    });
 };
 
 btnForRuning.onclick = () => {
-  liElems.forEach((elem) => elem.classList.remove("hidden"));
-  liElems.forEach((elem) => {
-    if (!elem.classList.contains("forRuning")) {
-      elem.classList.add("hidden");
-    }
-  });
+    liElems.forEach((elem) => elem.classList.remove("hidden"));
+    liElems.forEach((elem) => {
+        if (!elem.classList.contains("forRuning")) {
+            elem.classList.add("hidden");
+        }
+    });
 };
 
 btnAllProd.onclick = () => {
-  liElems.forEach((elem) => elem.classList.remove("hidden"));
+    liElems.forEach((elem) => elem.classList.remove("hidden"));
 };
 //////////////////////////////////////////////////////////////
 const buyProductBtn = document.querySelectorAll(".productCatalog_elem_buyBtn");
 buyProductBtn.forEach((button) => {
-  button.onclick = () => {
-    const form = button
-      .closest(".productCatalog_elem_body")
-      .querySelector(".productCatalog_elem_purchaseFormClass");
-    form.classList.toggle("show");
-  };
+    button.onclick = () => {
+        const form = button
+            .closest(".productCatalog_elem_body")
+            .querySelector(".productCatalog_elem_purchaseFormClass");
+        form.classList.toggle("show");
+    };
 });
-
