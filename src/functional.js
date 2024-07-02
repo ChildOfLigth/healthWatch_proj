@@ -142,6 +142,52 @@ backToMainBtn.forEach((button) => {
     };
 });
 /////////////////////////////////////////////////////
+
+const buyProductBtn = document.querySelectorAll(".productCatalog_elem_buyBtn");
+buyProductBtn.forEach((button) => {
+    button.onclick = () => {
+        const form = button
+            .closest(".productCatalog_elem_body")
+            .querySelector(".productCatalog_elem_purchaseFormClass");
+        form.classList.add("show");
+    };
+});
+
+const closebtn = document.querySelectorAll('.closeModalWind');
+closebtn.forEach(button => {
+    button.onclick = () => {
+        const formForBuyProduct = document.querySelectorAll('.productCatalog_elem_purchaseFormClass');
+        formForBuyProduct.forEach(form => {
+            form.onsubmit = (e) => {
+                e.preventDefault();
+                form.classList.remove('show');
+            }
+        })
+    }
+})
+
+const buyBtn = document.querySelectorAll('.makeAPurchase');
+
+///////////////////////////////////////////////////////////'
+const callback = (entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.remove('hidden');
+            observer.unobserve(entry.target);
+        }
+    });
+};
+
+let options = {
+    root: null,
+};
+
+const listProducts = document.querySelector('.productCatalog');
+if (listProducts) {
+    let observer = new IntersectionObserver(callback, options);
+    observer.observe(listProducts);
+}
+////////////////////////////////////////////
 const btnForFitnes = document.getElementById("btnforFitnes");
 const btnForRuning = document.getElementById("btnforRuning");
 const btnAllProd = document.getElementById("allProduct");
@@ -154,6 +200,7 @@ btnForFitnes.onclick = () => {
             elem.classList.add("hidden");
         }
     });
+    
 };
 
 btnForRuning.onclick = () => {
@@ -168,13 +215,3 @@ btnForRuning.onclick = () => {
 btnAllProd.onclick = () => {
     liElems.forEach((elem) => elem.classList.remove("hidden"));
 };
-//////////////////////////////////////////////////////////////
-const buyProductBtn = document.querySelectorAll(".productCatalog_elem_buyBtn");
-buyProductBtn.forEach((button) => {
-    button.onclick = () => {
-        const form = button
-            .closest(".productCatalog_elem_body")
-            .querySelector(".productCatalog_elem_purchaseFormClass");
-        form.classList.toggle("show");
-    };
-});
