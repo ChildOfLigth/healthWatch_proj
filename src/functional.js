@@ -58,15 +58,24 @@ form.onsubmit = (event) => {
 };
 
 ////////////////////////////////////////////////////////////////////////////////
-document.addEventListener("scroll", () => {
-    const advBlock = document.querySelector(".advantagesBlock");
-    const targetPosition = advBlock.getBoundingClientRect();
+const advBlock = document.querySelector(".advantagesBlock");
 
-    if (targetPosition.top >= 540) {
-        advBlock.classList.add("__show");
-    }
-});
+const callbackForAdBlock = (entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            advBlock.classList.add('__show');
+        } else {
+            advBlock.classList.remove('__show');
+        }
+    });
+}
 
+let optionsForAdv = {
+    root: null,
+}
+
+let observer = new IntersectionObserver(callbackForAdBlock, optionsForAdv);
+observer.observe(advBlock);
 ///////////////////////////////////////////////////////////////////////////
 const imgs = document.querySelectorAll(".discountedProductsBlock__slider_img");
 const controlls = document.querySelectorAll(".controlls");
@@ -100,42 +109,35 @@ controlls.forEach((e) => {
 
 show(imgIndex);
 //////////////////////////////////////////////////////////////
-document.addEventListener("DOMContentLoaded", () => {
-    const toTopBtn = document.getElementById("scrollToTop");
-    const scopeButton = document.querySelector('.commodityPart');
+const toTopBtn = document.getElementById("scrollToTop");
+const scopeButton = document.querySelector('.commodityPart');
 
-    if (!toTopBtn || !scopeButton) {
-        console.error("Элемент scrollToTop или commodityPart не найден.");
-        return;
-    }
+const callbackForButtonScroll = (entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            toTopBtn.classList.add('active');
+        } else {
+            toTopBtn.classList.remove('active');
+        }
+    });
+};
 
-    const callbackForButtonScroll = (entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                toTopBtn.classList.add('active');
-            } else {
-                toTopBtn.classList.remove('active');
-            }
-        });
-    };
+let optForButton = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.4
+};
 
-    let optForButton = {
-        root: null,  // Будет использовать окно браузера
-        rootMargin: '0px',
-        threshold: 0.1  // Процент видимости элемента для срабатывания
-    };
+let observerScrollBtn = new IntersectionObserver(callbackForButtonScroll, optForButton);
+observerScrollBtn.observe(scopeButton);
 
-    let observer = new IntersectionObserver(callbackForButtonScroll, optForButton);
-    observer.observe(scopeButton);
-
-    toTopBtn.onclick = () => {
-        window.scrollTo({
-            top: 0,
-            left: 0,
-            behavior: "smooth",
-        });
-    };
-});
+toTopBtn.onclick = () => {
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "smooth",
+    });
+};
 /////////////////////////////////////////////////////////////
 const detailsProdbtn = document.querySelectorAll(
     ".productCatalog_elem_details"
@@ -168,8 +170,13 @@ backToMainBtn.forEach((button) => {
 });
 /////////////////////////////////////////////////////
 const buyProductBtns = document.querySelectorAll(".productCatalog_elem_buyBtn");
+
 buyProductBtns.forEach((button) => {
     button.onclick = () => {
+        document.querySelectorAll(".productCatalog_elem_purchaseFormClass.show").forEach((openForm) => {
+            openForm.classList.remove("show");
+        });
+
         const form = button
             .closest(".productCatalog_elem_body")
             .querySelector(".productCatalog_elem_purchaseFormClass");
@@ -178,7 +185,6 @@ buyProductBtns.forEach((button) => {
         if (warningMessage) {
             warningMessage.remove();
         }
-
         form.classList.add("show");
     };
 });
@@ -199,11 +205,6 @@ purchaseForms.forEach(form => {
         const email = form.querySelector('[name="emailUs"]');
         const contactNumber = form.querySelector('[name="numberUs"]');
 
-        if (!name || !email || !contactNumber) {
-            console.error('One or more form elements not found');
-            return;
-        }
-
         let warningMessage = form.querySelector('.warning');
         if (warningMessage) {
             warningMessage.remove();
@@ -214,9 +215,11 @@ purchaseForms.forEach(form => {
             const serverResponse = document.createElement('div');
             serverResponse.classList.add('response');
             serverResponse.innerHTML = `
-                <span>Ваш заказ принят!</span> 
-                <p>Спасибо что выбрали наш магазин</p>
-            `;
+                <div class="content">
+                    <span>Ваш заказ принят!</span>
+                    <p>Спасибо что выбрали наш магазин</p>
+                </div>
+                `;
             serverResponse.classList.add('active');
             parentElem.appendChild(serverResponse);
 
@@ -226,13 +229,16 @@ purchaseForms.forEach(form => {
             email.value = "";
             contactNumber.value = "";
 
-            setTimeout(() => serverResponse.classList.remove('active'), 4000);
+            setTimeout(() => {
+                serverResponse.classList.remove('active');
+            }, 3000);
         } else {
             if (!form.querySelector('.warning')) {
                 warningMessage = document.createElement('p');
                 warningMessage.classList.add('warning');
                 warningMessage.textContent = 'Вы заполнили не все поля';
                 form.appendChild(warningMessage);
+
             }
         }
     };
@@ -294,3 +300,4 @@ const maskForNumOptions = {
 contactNumUser.forEach(elem => {
     const mask = new IMask(elem, maskForNumOptions);
 });
+//////////////////////////////////////////////
