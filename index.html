@@ -50,7 +50,7 @@
                 <p>Заполните форму для продолжения</p>
                 <input type="text" id="name" placeholder="Ваше имя.." />
                 <input type="text" id="email" placeholder="Ваш email.." />
-                <input type="text" id="numberPhone" placeholder="+380.." />
+                <input type="text" id="numberPhone" placeholder="+380(00)000-00-00" class="maskNum"/>
                 <button id="saveDataUser">Отправить</button>
             </form>
         </div>
@@ -103,7 +103,7 @@
     </div>
 
     <button id="scrollToTop" title="Вернуться к началу">
-        <img src="./imgs/ico/free-icon-up-arrow-5817906.png" alt="scrollBtn" />
+        <img src="./imgs/ico/2859461-removebg-preview.png" alt="scrollBtn" />
     </button>
 
     <div class="commodityPart" id="commodityPart">
@@ -119,20 +119,22 @@
                     <p class="productCatalog_elem_nameClock">
                         Xiaomi Smart Band 8 Black
                     </p>
-                    <img src="./imgs/367323210.webp" alt="prod" class="productCatalog_elem_img" />
+                    <img src="./imgs/367323203.webp" alt="prod" class="productCatalog_elem_img" />
                     <button class="productCatalog_elem_details">Подробнее</button>
                     <hr />
                     <div class="productCatalog_elem_footer">
-                        <p class="discount">236грн</p>
-                        <p class="defaultPrice">279грн</p>
+                        <div class="price">
+                            <p class="discount">236грн</p>
+                            <p class="defaultPrice">279грн</p>
+                        </div>
                         <button class="productCatalog_elem_buyBtn">Купить</button>
                     </div>
                     <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
                         <button class="closeModalWind">×</button>
                         <p>Ваш товар: <span>Xiaomi Smart Band 8 Black</span></p>
-                        <input type="text" name="nameUs" placeholder="Ваше имя.." />
-                        <input type="email" name="emailUs" placeholder="Ваш email.." />
-                        <input type="text" name="numberUs" placeholder="380+.." />
+                        <input type="text" id="nameUs" placeholder="Ваше имя.." />
+                        <input type="email" id="emailUs" placeholder="Ваш email.." />
+                        <input type="text" id="numberUs" placeholder="+380(00)000-00-00" class="maskNum"/>
                         <button class="completePurchase">Отправить</button>
                     </form>
                 </div>
@@ -155,7 +157,7 @@
                     <p class="productCatalog_elem_nameClock">
                         Xiaomi Mi Smart Band 8Pro
                     </p>
-                    <img src="./imgs/412876894.webp" alt="prod" class="productCatalog_elem_img" style="width: 165px" />
+                    <img src="./imgs/425278276.webp" alt="prod" class="productCatalog_elem_img" style="width: 236px" />
                     <button class="productCatalog_elem_details">Подробнее</button>
                     <hr />
                     <div class="productCatalog_elem_footer">
@@ -167,7 +169,7 @@
                         <p>Ваш товар: <span>Xiaomi Mi Smart Band 8Pro</span></p>
                         <input type="text" name="nameUs" placeholder="Ваше имя.." />
                         <input type="email" name="emailUs" placeholder="Ваш email.." />
-                        <input type="text" name="numberUs" placeholder="380+.." />
+                        <input type="text" name="numberUs" placeholder="+380(00)000-00-00" class="maskNum"/>
                         <button class="completePurchase">Отправить</button>
                     </form>
                 </div>
@@ -189,7 +191,7 @@
             <li class="productCatalog_elem forFitnes">
                 <div class="productCatalog_elem_body show">
                     <p class="productCatalog_elem_nameClock">Lemfo P3 Plus з ЕКГ</p>
-                    <img src="./imgs/photo_2024-06-02_20-43-00.jpg" alt="prod" class="productCatalog_elem_img" />
+                    <img src="./imgs/377072705.webp" alt="prod" class="productCatalog_elem_img" style="width: 238px;" />
                     <button class="productCatalog_elem_details">Подробнее</button>
                     <hr />
                     <div class="productCatalog_elem_footer">
@@ -201,7 +203,7 @@
                         <p>Ваш товар: <span>Lemfo P3 Plus з ЕКГ</span></p>
                         <input type="text" name="nameUs" placeholder="Ваше имя.." />
                         <input type="email" name="emailUs" placeholder="Ваш email.." />
-                        <input type="text" name="numberUs" placeholder="380+.." />
+                        <input type="text" name="numberUs" placeholder="+380(00)000-00-00" class="maskNum"/>
                         <button class="completePurchase">Отправить</button>
                     </form>
                 </div>
@@ -231,12 +233,14 @@
             <li class="productCatalog_elem forFitnes">
                 <div class="productCatalog_elem_body show">
                     <p class="productCatalog_elem_nameClock">Xiaomi Mi Smart Band 7</p>
-                    <img src="./imgs/272023891.webp" alt="prod" class="productCatalog_elem_img" />
+                    <img src="./imgs/297743968.webp" alt="prod" class="productCatalog_elem_img" style="width: 153px;" />
                     <button class="productCatalog_elem_details">Подробнее</button>
                     <hr />
                     <div class="productCatalog_elem_footer">
-                        <p class="discount">290грн</p>
-                        <p class="defaultPrice">350грн</p>
+                        <div class="price">
+                            <p class="discount">290грн</p>
+                            <p class="defaultPrice">350грн</p>
+                        </div>
                         <button class="productCatalog_elem_buyBtn">Купить</button>
                     </div>
                     <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
@@ -244,7 +248,7 @@
                         <p>Ваш товар: <span>Xiaomi Mi Smart Band 7</span></p>
                         <input type="text" name="nameUs" placeholder="Ваше имя.." />
                         <input type="email" name="emailUs" placeholder="Ваш email.." />
-                        <input type="text" name="numberUs" placeholder="380+.." />
+                        <input type="text" name="numberUs" placeholder="+380(00)000-00-00" class="maskNum"/>
                         <button class="completePurchase">Отправить</button>
                     </form>
                 </div>
@@ -279,8 +283,10 @@
                     <button class="productCatalog_elem_details">Подробнее</button>
                     <hr />
                     <div class="productCatalog_elem_footer">
-                        <p class="discount">350грн</p>
-                        <p class="defaultPrice">410грн</p>
+                        <div class="price">
+                            <p class="discount">350грн</p>
+                            <p class="defaultPrice">410грн</p>
+                        </div>
                         <button class="productCatalog_elem_buyBtn">Купить</button>
                     </div>
                     <form name="productCatalog_elem_purchaseForm" class="productCatalog_elem_purchaseFormClass">
@@ -288,7 +294,7 @@
                         <p>Ваш товар: <span>Lemfo C6T</span></p>
                         <input type="text" name="nameUs" placeholder="Ваше имя.." />
                         <input type="email" name="emailUs" placeholder="Ваш email.." />
-                        <input type="text" name="numberUs" placeholder="380+.." />
+                        <input type="text" name="numberUs" placeholder="+380(00)000-00-00" class="maskNum"/>
                         <button class="completePurchase">Отправить</button>
                     </form>
                 </div>
@@ -296,8 +302,8 @@
                     <li>
                         <p>
                             <span> Фитнес-функции: </span>Пульсометр, Секундомер, Скорость
-                            движения, Содержание кислорода в крови, Счетчик калорий, Умный
-                            будильник, Функция плавания, Шагомер
+                            движения, Содержание кислорода в крови, Счетчик калорий, Будильник, Функция плавания,
+                            Шагомер
                         </p>
                     </li>
                     <li>
@@ -331,7 +337,7 @@
                         <p>Ваш товар: <span>Smart Band M6 Pink</span></p>
                         <input type="text" name="nameUs" placeholder="Ваше имя.." />
                         <input type="email" name="emailUs" placeholder="Ваш email.." />
-                        <input type="text" name="numberUs" placeholder="380+.." />
+                        <input type="text" name="numberUs" placeholder="+380(00)000-00-00"class="maskNum"/>
                         <button class="completePurchase">Отправить</button>
                     </form>
                 </div>
@@ -392,7 +398,7 @@
     <button id="arrowStart" title="Вернуться к началу">
         <img src="./imgs/ico/Up-Arrow-Transparent-Images.png" alt="ico" />
     </button>
+    <script src="https://unpkg.com/imask"></script>
     <script src="./src/functional.js" type="module"></script>
 </body>
-
 </html>
