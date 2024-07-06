@@ -15,11 +15,21 @@ buttonShowConnWindow.forEach((buttElem) => {
     };
 });
 
-closeMdlWindow.onclick = () => form.classList.remove("_active");
+const resetForm = () => {
+    nameInp.value = "";
+    emailInp.value = "";
+    numberInp.value = "";
+};
+
+closeMdlWindow.onclick = () => {
+    form.classList.remove("_active");
+    resetForm();
+};
 document.onkeydown = (event) => {
     if (event.key == "Escape") {
         form.classList.remove("_active");
-    }
+        resetForm();
+    };
 };
 
 saveDataBtn.onclick = () => {
@@ -32,9 +42,7 @@ saveDataBtn.onclick = () => {
       <p><span>${valueName}</span>, ваша заявка принята! Мы пришлем Вам сообщение на почту или позвоним на указанный Вами номер.</p>
     `;
         showDataUser.classList.add("_active");
-        nameInp.value = "";
-        numberInp.value = "";
-        emailInp.value = "";
+        resetForm();
         headerElem.appendChild(showDataUser);
         form.classList.remove("_active");
     } else {
@@ -92,25 +100,42 @@ controlls.forEach((e) => {
 
 show(imgIndex);
 //////////////////////////////////////////////////////////////
-const toTopBtn = document.getElementById("scrollToTop");
-document.addEventListener("scroll", () => {
-    const catalog = document.querySelector(".commodityPart");
+document.addEventListener("DOMContentLoaded", () => {
+    const toTopBtn = document.getElementById("scrollToTop");
+    const scopeButton = document.querySelector('.commodityPart');
 
-    const catalogCoordination = catalog.getBoundingClientRect();
-    if (catalogCoordination.top < 33) {
-        toTopBtn.classList.add("active");
-    } else {
-        toTopBtn.classList.remove("active");
+    if (!toTopBtn || !scopeButton) {
+        console.error("Элемент scrollToTop или commodityPart не найден.");
+        return;
     }
-});
 
-toTopBtn.onclick = () => {
-    window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-    });
-};
+    const callbackForButtonScroll = (entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                toTopBtn.classList.add('active');
+            } else {
+                toTopBtn.classList.remove('active');
+            }
+        });
+    };
+
+    let optForButton = {
+        root: null,  // Будет использовать окно браузера
+        rootMargin: '0px',
+        threshold: 0.1  // Процент видимости элемента для срабатывания
+    };
+
+    let observer = new IntersectionObserver(callbackForButtonScroll, optForButton);
+    observer.observe(scopeButton);
+
+    toTopBtn.onclick = () => {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: "smooth",
+        });
+    };
+});
 /////////////////////////////////////////////////////////////
 const detailsProdbtn = document.querySelectorAll(
     ".productCatalog_elem_details"
@@ -142,38 +167,83 @@ backToMainBtn.forEach((button) => {
     };
 });
 /////////////////////////////////////////////////////
-
-const buyProductBtn = document.querySelectorAll(".productCatalog_elem_buyBtn");
-buyProductBtn.forEach((button) => {
+const buyProductBtns = document.querySelectorAll(".productCatalog_elem_buyBtn");
+buyProductBtns.forEach((button) => {
     button.onclick = () => {
         const form = button
             .closest(".productCatalog_elem_body")
             .querySelector(".productCatalog_elem_purchaseFormClass");
+
+        const warningMessage = form.querySelector('.warning');
+        if (warningMessage) {
+            warningMessage.remove();
+        }
+
         form.classList.add("show");
     };
 });
 
-const closebtn = document.querySelectorAll('.closeModalWind');
-closebtn.forEach(button => {
+const closeBtns = document.querySelectorAll('.closeModalWind');
+closeBtns.forEach(button => {
     button.onclick = () => {
-        const formForBuyProduct = document.querySelectorAll('.productCatalog_elem_purchaseFormClass');
-        formForBuyProduct.forEach(form => {
-            form.onsubmit = (e) => {
-                e.preventDefault();
-                form.classList.remove('show');
+        const form = button.closest('.productCatalog_elem_purchaseFormClass');
+        form.classList.remove('show');
+    };
+});
+
+const purchaseForms = document.querySelectorAll('.productCatalog_elem_purchaseFormClass');
+purchaseForms.forEach(form => {
+    form.onsubmit = (e) => {
+        e.preventDefault();
+        const name = form.querySelector('[name="nameUs"]');
+        const email = form.querySelector('[name="emailUs"]');
+        const contactNumber = form.querySelector('[name="numberUs"]');
+
+        if (!name || !email || !contactNumber) {
+            console.error('One or more form elements not found');
+            return;
+        }
+
+        let warningMessage = form.querySelector('.warning');
+        if (warningMessage) {
+            warningMessage.remove();
+        }
+
+        if (name.value && email.value && contactNumber.value) {
+            const parentElem = form.closest('.productCatalog_elem');
+            const serverResponse = document.createElement('div');
+            serverResponse.classList.add('response');
+            serverResponse.innerHTML = `
+                <span>Ваш заказ принят!</span> 
+                <p>Спасибо что выбрали наш магазин</p>
+            `;
+            serverResponse.classList.add('active');
+            parentElem.appendChild(serverResponse);
+
+            form.classList.remove('show');
+
+            name.value = "";
+            email.value = "";
+            contactNumber.value = "";
+
+            setTimeout(() => serverResponse.classList.remove('active'), 4000);
+        } else {
+            if (!form.querySelector('.warning')) {
+                warningMessage = document.createElement('p');
+                warningMessage.classList.add('warning');
+                warningMessage.textContent = 'Вы заполнили не все поля';
+                form.appendChild(warningMessage);
             }
-        })
-    }
-})
-
-const buyBtn = document.querySelectorAll('.makeAPurchase');
-
+        }
+    };
+});
 ///////////////////////////////////////////////////////////'
-const callback = (entries, observer) => {
+const callback = (entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.remove('hidden');
-            observer.unobserve(entry.target);
+        } else {
+            entry.target.classList.add('hidden');
         }
     });
 };
@@ -200,7 +270,7 @@ btnForFitnes.onclick = () => {
             elem.classList.add("hidden");
         }
     });
-    
+
 };
 
 btnForRuning.onclick = () => {
@@ -215,3 +285,12 @@ btnForRuning.onclick = () => {
 btnAllProd.onclick = () => {
     liElems.forEach((elem) => elem.classList.remove("hidden"));
 };
+/////////////////////////////////////////////////////////////
+const contactNumUser = document.querySelectorAll('.maskNum');
+const maskForNumOptions = {
+    mask: '+380(00)000-00-00',
+    lazy: false,
+}
+contactNumUser.forEach(elem => {
+    const mask = new IMask(elem, maskForNumOptions);
+});
