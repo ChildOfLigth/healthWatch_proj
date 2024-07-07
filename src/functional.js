@@ -1,3 +1,7 @@
+document.addEventListener("DOMContentLoaded", () => {
+    form.classList.remove("_active");
+});
+
 const headerElem = document.querySelector(".header");
 const buttonShowConnWindow = document.querySelectorAll(".showConnectionBlock");
 const form = document.forms.submittingTheForm;
@@ -7,7 +11,6 @@ const emailInp = form.email;
 const closeMdlWindow = document.getElementById("closeModalWind");
 const saveDataBtn = document.getElementById("saveDataUser");
 const showDataUser = document.createElement("div");
-showDataUser.className = "idntityConfirmResponse";
 
 buttonShowConnWindow.forEach((buttElem) => {
     buttElem.onclick = () => {
@@ -25,11 +28,12 @@ closeMdlWindow.onclick = () => {
     form.classList.remove("_active");
     resetForm();
 };
+
 document.onkeydown = (event) => {
     if (event.key == "Escape") {
         form.classList.remove("_active");
         resetForm();
-    };
+    }
 };
 
 saveDataBtn.onclick = () => {
@@ -38,15 +42,23 @@ saveDataBtn.onclick = () => {
     const valueEmail = emailInp.value;
 
     if (valueName && valueEmail && valueNumberPh) {
+        showDataUser.className = "idntityConfirmResponse";
         showDataUser.innerHTML = `
-      <p><span>${valueName}</span>, ваша заявка принята! Мы пришлем Вам сообщение на почту или позвоним на указанный Вами номер.</p>
+        <div class="contentTrue">
+         <p><span>${valueName}</span>, ваша заявка принята! Мы пришлем Вам сообщение на почту или позвоним на указанный Вами номер.</p>
+        </div>
     `;
         showDataUser.classList.add("_active");
         resetForm();
         headerElem.appendChild(showDataUser);
         form.classList.remove("_active");
     } else {
-        showDataUser.innerHTML = `Введите данные во все поля.`;
+        showDataUser.className = "idntityConfirmResponse_warning";
+        showDataUser.innerHTML = `
+        <div class="contentFalse">
+        <p>Вы зaполнили не все поля</p>
+        </div>
+        `;
         showDataUser.classList.add("_active");
         headerElem.appendChild(showDataUser);
     }
@@ -125,7 +137,7 @@ const callbackForButtonScroll = (entries) => {
 let optForButton = {
     root: null,
     rootMargin: '0px',
-    threshold: 0.4
+    threshold: 0.5
 };
 
 let observerScrollBtn = new IntersectionObserver(callbackForButtonScroll, optForButton);
@@ -300,4 +312,4 @@ const maskForNumOptions = {
 contactNumUser.forEach(elem => {
     const mask = new IMask(elem, maskForNumOptions);
 });
-//////////////////////////////////////////////
+
