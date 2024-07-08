@@ -45,7 +45,8 @@ saveDataBtn.onclick = () => {
         showDataUser.className = "idntityConfirmResponse";
         showDataUser.innerHTML = `
         <div class="contentTrue">
-         <p><span>${valueName}</span>, ваша заявка принята! Мы пришлем Вам сообщение на почту или позвоним на указанный Вами номер.</p>
+        <h2>Успешно!</h2>
+         <p><span>${valueName}</span>, заявка принята! Мы напишем Вам на почту или позвоним на указанный номер.</p>
         </div>
     `;
         showDataUser.classList.add("_active");
@@ -76,8 +77,7 @@ const callbackForAdBlock = (entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             advBlock.classList.add('__show');
-        } else {
-            advBlock.classList.remove('__show');
+            observer.unobserve(entry.target);
         }
     });
 }
@@ -229,7 +229,7 @@ purchaseForms.forEach(form => {
             serverResponse.innerHTML = `
                 <div class="content">
                     <span>Ваш заказ принят!</span>
-                    <p>Спасибо что выбрали наш магазин</p>
+                    <p>Спасибо что выбрали наш магазин. Мы позвоним на Ваш контактный номер в течении 5-ти часов для уточнения данных</p>
                 </div>
                 `;
             serverResponse.classList.add('active');
@@ -312,4 +312,3 @@ const maskForNumOptions = {
 contactNumUser.forEach(elem => {
     const mask = new IMask(elem, maskForNumOptions);
 });
-
