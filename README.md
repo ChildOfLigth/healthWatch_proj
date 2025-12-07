@@ -1,1 +1,3 @@
-# This is my first REALLY full-fledged project. It's simple and doesn't have an adaptive, but the next project will be better. Here is pure JavaScript, HTML, SASS
+# This is my first truly full-fledged project. It is simple and not responsive, but the next project will be better. Here we have pure JavaScript, HTML, and SASS.
+
+A brief description of the project: a fitness watch store.
